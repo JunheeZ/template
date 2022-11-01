@@ -1,0 +1,47 @@
+.Border(@direction) {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    border-@{direction}: 1px solid var(--border-color);
+    content: ' ';
+    transform: scaleY(0.5);
+    box-sizing: border-box;;
+  }
+}
+
+.MultiEllipsis(@lines) {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: @lines;
+
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+}
+
+.SafeAreaInsetBottom() {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.FlexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.BackgroundSize() {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.Ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
